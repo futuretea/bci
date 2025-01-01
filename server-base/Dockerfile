@@ -1,4 +1,4 @@
-FROM registry.suse.com/bci/bci-base:15.6
+FROM --platform=linux/amd64 registry.suse.com/bci/bci-base:15.6
 
 RUN zypper -n rm container-suseconnect && \
     zypper -n install curl gzip tar nfs-client && \

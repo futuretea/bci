@@ -22,7 +22,7 @@ jobs:
           DOCKER_IMAGE_REPO=futuretea
           DOCKER_IMAGE_NAME=${{ github.event.inputs.dockerImageName }}
           DOCKER_IMAGE=${DOCKER_IMAGE_REPO}/${DOCKER_IMAGE_NAME}
-          DOCKER_PLATFORMS=linux/amd64,linux/arm64
+          DOCKER_PLATFORMS=linux/amd64,drawin/amd64,linux/arm64,drawin/arm64
           TAG_NAME=${{ github.event.inputs.dockerImageTag }}
           DOCKER_IMAGE_TAGS="--tag ${DOCKER_IMAGE}:${TAG_NAME} --tag ${DOCKER_IMAGE}:latest"
           echo ::set-output name=docker_image::${DOCKER_IMAGE}

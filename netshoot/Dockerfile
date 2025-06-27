@@ -12,12 +12,12 @@ RUN apt-get update \
         iftop iotop htop \
         bird bridge-utils ethtool \
         fping hping3 \
-        iperf iperf3 \
+        iperf iperf3 netperf \
         net-tools iproute2 iputils-ping\
         netcat-openbsd socat telnet \
         tcptraceroute traceroute \
         ipset iptraf-ng \
-        iptables nftables ipvsadm\
+        iptables nftables ipvsadm \
         mtr nmap lsof \
         swaks nfs-common \
         dhcping dnsutils \

@@ -1,6 +1,7 @@
-FROM golang:1.22-bookworm
+FROM golang:1.25-bookworm
 
 ENV ARCH=amd64
+ENV GOTOOLCHAIN=auto
 
 RUN apt-get update -qq && apt-get install -y --no-install-recommends \
     xz-utils \
@@ -37,16 +38,16 @@ RUN apt-get update -qq && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 ## install golangci
-RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s v1.57.1
+RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s latest
 
 ## install controller-gen
-RUN GO111MODULE=on go install sigs.k8s.io/controller-tools/cmd/controller-gen@v0.15.0
+RUN GO111MODULE=on go install sigs.k8s.io/controller-tools/cmd/controller-gen@v0.17.1
 
 ## install ginkgo
 RUN GO111MODULE=on go install github.com/onsi/ginkgo/v2/ginkgo@v2.1.4
 
 # install openapi-gen
-RUN  GO111MODULE=on go install k8s.io/code-generator/cmd/openapi-gen@v0.23.7
+RUN  GO111MODULE=on go install k8s.io/code-generator/cmd/openapi-gen@v0.29.13
 
 # install kind
 RUN curl -Lo /usr/bin/kind https://kind.sigs.k8s.io/dl/v0.14.0/kind-linux-${ARCH} && chmod +x /usr/bin/kind

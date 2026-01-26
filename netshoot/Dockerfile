@@ -21,9 +21,8 @@ RUN apt-get update \
         mtr nmap lsof \
         swaks nfs-common \
         dhcping dnsutils \
-        jattach openjdk-8-jdk \
+        jattach \
     && apt-get clean
-RUN curl -L https://arthas.aliyun.com/install.sh | sh
 ENV GOREPLAY_VERSION=1.3.3
 ENV PWRU_VERSION=v1.0.9
 RUN curl -sLO https://github.com/buger/goreplay/releases/download/${GOREPLAY_VERSION}/gor_${GOREPLAY_VERSION}_amd64.deb \

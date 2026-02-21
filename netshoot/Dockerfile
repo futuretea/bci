@@ -23,6 +23,7 @@ RUN apt-get update \
         dhcping dnsutils \
         jattach \
     && apt-get clean
+RUN pip install glances
 ENV GOREPLAY_VERSION=1.3.3
 ENV PWRU_VERSION=v1.0.9
 ENV WEBSOCAT_VERSION=1.14.0

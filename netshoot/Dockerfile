@@ -26,6 +26,7 @@ RUN apt-get update \
 ENV GOREPLAY_VERSION=1.3.3
 ENV PWRU_VERSION=v1.0.9
 ENV WEBSOCAT_VERSION=1.14.0
+ENV PSC_VERSION=v0.3.2
 RUN curl -sLO https://github.com/buger/goreplay/releases/download/${GOREPLAY_VERSION}/gor_${GOREPLAY_VERSION}_amd64.deb \
     && dpkg -i gor_${GOREPLAY_VERSION}_amd64.deb \
     && rm gor_${GOREPLAY_VERSION}_amd64.deb \
@@ -34,4 +35,7 @@ RUN curl -sLO https://github.com/buger/goreplay/releases/download/${GOREPLAY_VER
     && mv pwru /usr/local/bin/pwru \
     && rm -rf pwru-linux-amd64.tar.gz \
     && curl -sLo /usr/local/bin/websocat https://github.com/vi/websocat/releases/download/v${WEBSOCAT_VERSION}/websocat.x86_64-unknown-linux-musl \
-    && chmod +x /usr/local/bin/websocat
+    && chmod +x /usr/local/bin/websocat \
+    && curl -sLO https://github.com/loresuso/psc/releases/download/${PSC_VERSION}/psc_0.3.2_linux_amd64.deb \
+    && dpkg -i psc_0.3.2_linux_amd64.deb \
+    && rm psc_0.3.2_linux_amd64.deb
